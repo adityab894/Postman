@@ -6,7 +6,7 @@ const isDevelopment = import.meta.env.DEV;
 // Set the base URL based on the environment
 const API_BASE_URL = isDevelopment 
   ? 'http://localhost:5002/api'  // Local development
-  : 'https://postman-backend-inky.vercel.app/api';  // Production
+  : 'https://postman-backend-omega.vercel.app/api';  // Production
 
 // Create axios instance with default config
 const api = axios.create({
