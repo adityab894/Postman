@@ -1,12 +1,11 @@
 import axios from 'axios';
 
-// Determine if we're in development mode
-const isDevelopment = import.meta.env.DEV;
+// Get the backend URL from environment variable
+const API_BASE_URL = import.meta.env.VITE_BACKEND_URL 
+  ? `${import.meta.env.VITE_BACKEND_URL}/api`  // Use environment variable if set
+  : 'http://localhost:5002/api';  // Fallback to local development
 
-// Set the base URL based on the environment
-const API_BASE_URL = isDevelopment 
-  ? 'http://localhost:5002/api'  // Local development
-  : 'https://postman-backend-omega.vercel.app/api';  // Production
+console.log('Using API Base URL:', API_BASE_URL); // Debug log
 
 // Create axios instance with default config
 const api = axios.create({
@@ -20,6 +19,9 @@ const api = axios.create({
 // Add request interceptor
 api.interceptors.request.use(
   (config) => {
+    // Log the full URL being requested
+    console.log('Making request to:', `${config.baseURL}${config.url}`);
+    
     // Add auth token if available
     const token = localStorage.getItem('token');
     if (token) {
@@ -36,7 +38,13 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error('API Error:', error);
+    console.error('API Error:', {
+      url: error.config?.url,
+      method: error.config?.method,
+      status: error.response?.status,
+      data: error.response?.data,
+      message: error.message
+    });
     return Promise.reject(error);
   }
 );
@@ -149,6 +157,29 @@ export const authAPI = {
     } catch (error) {
       console.error('Error verifying token:', error);
       throw new Error(error.response?.data?.message || 'Failed to verify token');
+    }
+  }
+};
+
+// Speakers API functions
+export const speakersAPI = {
+  submitSpeaker: async (speakerData) => {
+    try {
+      const response = await api.post('/speakers/submit', speakerData);
+      return response.data;
+    } catch (error) {
+      console.error('Error submitting speaker:', error);
+      throw new Error(error.response?.data?.message || 'Failed to submit speaker');
+    }
+  },
+
+  getAllSpeakers: async () => {
+    try {
+      const response = await api.get('/speakers');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching speakers:', error);
+      throw new Error(error.response?.data?.message || 'Failed to fetch speakers');
     }
   }
 };
