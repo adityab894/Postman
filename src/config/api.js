@@ -1,9 +1,11 @@
 import axios from 'axios';
 
-// Get the backend URL from environment variable
-const API_BASE_URL = import.meta.env.VITE_BACKEND_URL 
-  ? `${import.meta.env.VITE_BACKEND_URL}/api`  // Use environment variable if set
-  : 'http://localhost:5002/api';  // Fallback to local development
+// Get the backend URL from environment variable and ensure no trailing slash
+const BASE_URL = import.meta.env.VITE_BACKEND_URL 
+  ? import.meta.env.VITE_BACKEND_URL.replace(/\/$/, '')  // Remove trailing slash if present
+  : 'http://localhost:5002';
+
+const API_BASE_URL = `${BASE_URL}/api`;
 
 console.log('Using API Base URL:', API_BASE_URL); // Debug log
 
@@ -19,6 +21,11 @@ const api = axios.create({
 // Add request interceptor
 api.interceptors.request.use(
   (config) => {
+    // Ensure URL doesn't have double slashes
+    if (config.url) {
+      config.url = config.url.replace(/^\/+/, '/');
+    }
+    
     // Log the full URL being requested
     console.log('Making request to:', `${config.baseURL}${config.url}`);
     
