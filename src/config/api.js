@@ -2,10 +2,10 @@ import axios from 'axios';
 
 // Get the backend URL from environment variable and ensure no trailing slash
 const BASE_URL = import.meta.env.VITE_BACKEND_URL 
-  ? import.meta.env.VITE_BACKEND_URL.replace(/\/$/, '')  // Remove trailing slash if present
+  ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/, '')  // Remove all trailing slashes
   : 'http://localhost:5002';
 
-const API_BASE_URL = `${BASE_URL}/api`;
+const API_BASE_URL = `${BASE_URL}/api`.replace(/\/+/g, '/');  // Replace multiple slashes with single slash
 
 console.log('Using API Base URL:', API_BASE_URL); // Debug log
 
@@ -23,11 +23,12 @@ api.interceptors.request.use(
   (config) => {
     // Ensure URL doesn't have double slashes
     if (config.url) {
-      config.url = config.url.replace(/^\/+/, '/');
+      config.url = config.url.replace(/^\/+/, '');  // Remove leading slashes
+      config.url = config.url.replace(/\/+/g, '/');  // Replace multiple slashes with single slash
     }
     
     // Log the full URL being requested
-    console.log('Making request to:', `${config.baseURL}${config.url}`);
+    console.log('Making request to:', `${config.baseURL}/${config.url}`);
     
     // Add auth token if available
     const token = localStorage.getItem('token');

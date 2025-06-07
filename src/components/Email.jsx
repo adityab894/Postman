@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import { toast } from "sonner";
-import api from '../config/api';
+import { emailAPI } from '../config/api';
 
 function Email() {
   const form = useRef();
@@ -18,19 +18,14 @@ function Email() {
         userInterest: formData.get("user_interest"),
       };
 
-      toast.promise(
-        api.post('/email/submit', data),
-        {
-          loading: "Submitting your interest...",
-          success: () => {
-            form.current.reset();
-            return "Thank you for your interest! We will contact you soon.";
-          },
-          error: (error) => {
-            return error.response?.data?.message || "Something went wrong. Please try again.";
-          },
-        }
-      );
+      const response = await emailAPI.submitEmail(data);
+      
+      if (response.status === "success") {
+        form.current.reset();
+        toast.success("Thank you for your interest! We will contact you soon.");
+      } else {
+        throw new Error(response.message || "Something went wrong");
+      }
     } catch (error) {
       console.error("Submission error:", error);
       toast.error("Submission Failed", {

@@ -19,6 +19,6 @@
     }
   ],
   "env": {
-    "VITE_BACKEND_URL": "https://postman-backend-omega.vercel.app/api"
+    "VITE_BACKEND_URL": "https://postman-backend-omega.vercel.app"
   }
 }
