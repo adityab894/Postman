@@ -19,27 +19,7 @@ function Email() {
       };
 
       toast.promise(
-        fetch(`${api.ENDPOINTS.EMAIL}/submit`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }).then(async (response) => {
-          const result = await response.json();
-
-          if (!response.ok) {
-            if (response.status === 400 && result.errors) {
-              const errorMessages = result.errors
-                .map((error) => error.message)
-                .join("\n");
-              throw new Error(errorMessages);
-            }
-            throw new Error(result.message || "Failed to submit form");
-          }
-
-          return result;
-        }),
+        api.post('/email/submit', data),
         {
           loading: "Submitting your interest...",
           success: () => {
@@ -47,14 +27,14 @@ function Email() {
             return "Thank you for your interest! We will contact you soon.";
           },
           error: (error) => {
-            return error.message || "Something went wrong. Please try again.";
+            return error.response?.data?.message || "Something went wrong. Please try again.";
           },
         }
       );
     } catch (error) {
       console.error("Submission error:", error);
       toast.error("Submission Failed", {
-        description: error.message || "Please try again later.",
+        description: error.response?.data?.message || "Please try again later.",
       });
     } finally {
       setIsSubmitting(false);

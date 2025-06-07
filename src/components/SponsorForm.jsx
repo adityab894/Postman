@@ -31,7 +31,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
-import { ENDPOINTS } from '../config/api';
+import api from '../config/api';
 
 const sponsorshipPackages = [
   {
@@ -136,29 +136,10 @@ function SponsorForm() {
     try {
       // Show loading toast
       toast.promise(
-        fetch(`${ENDPOINTS.SPONSORS}/submit`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        }).then(async (response) => {
-          const result = await response.json();
-          
-          if (!response.ok) {
-            // Handle validation errors
-            if (response.status === 400 && result.errors) {
-              const errorMessages = result.errors.map(error => error.message).join('\n');
-              throw new Error(errorMessages);
-            }
-            throw new Error(result.message || 'Failed to submit sponsorship request');
-          }
-          
-          return result;
-        }),
+        api.post('/sponsors/submit', data),
         {
           loading: 'Submitting your sponsorship request...',
-          success: (result) => {
+          success: (response) => {
             // Reset form after successful submission
             form.reset();
             return (
@@ -171,7 +152,7 @@ function SponsorForm() {
           error: (error) => {
             return (
               <div className="mt-2">
-                <p>{error.message || "Please try again later."}</p>
+                <p>{error.response?.data?.message || error.message || "Please try again later."}</p>
                 <p className="mt-1 text-sm">If the problem persists, please contact our support team.</p>
               </div>
             );
@@ -183,7 +164,7 @@ function SponsorForm() {
       toast.error("Submission Failed", {
         description: (
           <div className="mt-2">
-            <p>{error.message || "Please try again later."}</p>
+            <p>{error.response?.data?.message || error.message || "Please try again later."}</p>
             <p className="mt-1 text-sm">If the problem persists, please contact our support team.</p>
           </div>
         ),

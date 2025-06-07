@@ -1,17 +1,12 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5002/api';
+// Determine if we're in development mode
+const isDevelopment = import.meta.env.DEV;
 
-// Maintain ENDPOINTS for backward compatibility
-export const ENDPOINTS = {
-  SPEAKERS: `${API_BASE_URL}/speakers`,
-  SPONSORS: `${API_BASE_URL}/sponsors`,
-  EMAIL: `${API_BASE_URL}/email`,
-  EVENTS: `${API_BASE_URL}/events`,
-  USERS: `${API_BASE_URL}/users`,
-  AUTH: `${API_BASE_URL}/auth`,
-  ADMIN_AUTH: `${API_BASE_URL}/admin/auth`,
-};
+// Set the base URL based on the environment
+const API_BASE_URL = isDevelopment 
+  ? 'http://localhost:5002/api'  // Local development
+  : 'https://postman-backend-inky.vercel.app/api';  // Production
 
 // Create axios instance with default config
 const api = axios.create({
@@ -19,12 +14,14 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: false
 });
 
-// Add request interceptor to add auth token
+// Add request interceptor
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('adminToken');
+    // Add auth token if available
+    const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -35,6 +32,26 @@ api.interceptors.request.use(
   }
 );
 
+// Add response interceptor
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    console.error('API Error:', error);
+    return Promise.reject(error);
+  }
+);
+
+// API endpoints
+const ENDPOINTS = {
+  SPEAKERS: '/speakers',
+  SPONSORS: '/sponsors',
+  EMAIL: '/email',
+  EVENTS: '/events',
+  REGISTRATIONS: '/registrations',
+  ADMIN: '/admin'
+};
+
+// Event API functions
 export const eventAPI = {
   getAllEvents: async () => {
     try {
@@ -71,7 +88,7 @@ export const eventAPI = {
 
   updateEvent: async (id, eventData) => {
     try {
-      const response = await api.put(`/events/${id}`, eventData);
+      const response = await api.post(`/events/${id}`, eventData);
       return response.data;
     } catch (error) {
       console.error('Error updating event:', error);
@@ -87,31 +104,10 @@ export const eventAPI = {
       console.error('Error deleting event:', error);
       throw new Error(error.response?.data?.message || 'Failed to delete event');
     }
-  },
+  }
 };
 
-export const userAPI = {
-  register: async (userData) => {
-    try {
-      const response = await api.post('/users/register', userData);
-      return response.data;
-    } catch (error) {
-      console.error('Error registering user:', error);
-      throw error;
-    }
-  },
-
-  login: async (credentials) => {
-    try {
-      const response = await api.post('/auth/login', credentials);
-      return response.data;
-    } catch (error) {
-      console.error('Error logging in:', error);
-      throw error;
-    }
-  },
-};
-
+// Auth API functions
 export const authAPI = {
   login: async (credentials) => {
     try {
@@ -144,11 +140,6 @@ export const authAPI = {
   }
 };
 
-// Export default for backward compatibility
-export default {
-  API_BASE_URL,
-  ENDPOINTS,
-  eventAPI,
-  userAPI,
-  authAPI,
-}; 
+// Export both the axios instance and endpoints
+export { ENDPOINTS };
+export default api; 

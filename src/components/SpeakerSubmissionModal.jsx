@@ -40,46 +40,38 @@ const SpeakerSubmissionModal = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${api.ENDPOINTS.SPEAKERS}/submit`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        // Handle validation errors
-        if (response.status === 400 && data.errors) {
-          const errorMessages = data.errors.map(error => error.message).join('\n');
-          throw new Error(errorMessages);
+      toast.promise(
+        api.post('/speakers/submit', formData),
+        {
+          loading: "Submitting your talk proposal...",
+          success: () => {
+            // Reset form and close modal
+            setFormData({
+              fullName: "",
+              email: "",
+              organization: "",
+              talkTitle: "",
+              talkType: "",
+              talkDescription: "",
+              previousSpeakingExperience: false,
+              termsAccepted: false,
+            });
+            onClose();
+            return "Your talk proposal has been submitted successfully! We'll review your submission and contact you via email soon.";
+          },
+          error: (error) => {
+            if (error.response?.data?.errors) {
+              const errorMessages = error.response.data.errors.map(error => error.message).join('\n');
+              return errorMessages;
+            }
+            return error.response?.data?.message || "Failed to submit proposal. Please try again later.";
+          },
         }
-        throw new Error(data.message || 'Failed to submit proposal');
-      }
-
-      // Success toast
-      toast.success("Your talk proposal has been submitted successfully!", {
-        description: "We'll review your submission and contact you via email soon.",
-      });
-
-      // Reset form and close modal
-      setFormData({
-        fullName: "",
-        email: "",
-        organization: "",
-        talkTitle: "",
-        talkType: "",
-        talkDescription: "",
-        previousSpeakingExperience: false,
-        termsAccepted: false,
-      });
-      onClose();
+      );
     } catch (error) {
-      // Error toast
+      console.error('Submission error:', error);
       toast.error("Failed to submit proposal", {
-        description: error.message || "Please try again later.",
+        description: error.response?.data?.message || "Please try again later.",
       });
     } finally {
       setIsSubmitting(false);
