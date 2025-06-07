@@ -5,9 +5,10 @@ const BASE_URL = import.meta.env.VITE_BACKEND_URL
   ? import.meta.env.VITE_BACKEND_URL.replace(/\/+$/, '')  // Remove all trailing slashes
   : 'http://localhost:5002';
 
-const API_BASE_URL = `${BASE_URL}/api`.replace(/\/+/g, '/');  // Replace multiple slashes with single slash
+// Ensure no double slashes in API base URL
+const API_BASE_URL = `${BASE_URL}/api`.replace(/\/+/g, '/');
 
-console.log('Using API Base URL:', API_BASE_URL); // Debug log
+console.log('Using API Base URL:', API_BASE_URL);
 
 // Create axios instance with default config
 const api = axios.create({
@@ -23,12 +24,14 @@ api.interceptors.request.use(
   (config) => {
     // Ensure URL doesn't have double slashes
     if (config.url) {
-      config.url = config.url.replace(/^\/+/, '');  // Remove leading slashes
-      config.url = config.url.replace(/\/+/g, '/');  // Replace multiple slashes with single slash
+      // Remove leading slashes and normalize path
+      config.url = config.url.replace(/^\/+/, '');
+      config.url = config.url.replace(/\/+/g, '/');
     }
     
-    // Log the full URL being requested
-    console.log('Making request to:', `${config.baseURL}/${config.url}`);
+    // Construct the full URL without double slashes
+    const fullUrl = `${config.baseURL}/${config.url}`.replace(/\/+/g, '/');
+    console.log('Making request to:', fullUrl);
     
     // Add auth token if available
     const token = localStorage.getItem('token');
@@ -42,36 +45,30 @@ api.interceptors.request.use(
   }
 );
 
-// Add response interceptor
+// Add response interceptor for better error handling
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error('API Error:', {
-      url: error.config?.url,
-      method: error.config?.method,
-      status: error.response?.status,
-      data: error.response?.data,
-      message: error.message
-    });
+    console.error('API Error:', error);
     return Promise.reject(error);
   }
 );
 
 // API endpoints
 const ENDPOINTS = {
-  SPEAKERS: '/speakers',
-  SPONSORS: '/sponsors',
-  EMAIL: '/email',
-  EVENTS: '/events',
-  REGISTRATIONS: '/registrations',
-  ADMIN: '/admin'
+  SPEAKERS: 'speakers',
+  SPONSORS: 'sponsors',
+  EMAIL: 'email',
+  EVENTS: 'events',
+  REGISTRATIONS: 'registrations',
+  ADMIN: 'admin'
 };
 
 // Email API functions
 export const emailAPI = {
   submitEmail: async (emailData) => {
     try {
-      const response = await api.post('/email/submit', emailData);
+      const response = await api.post(`${ENDPOINTS.EMAIL}/submit`, emailData);
       return response.data;
     } catch (error) {
       console.error('Error submitting email:', error);
@@ -84,7 +81,7 @@ export const emailAPI = {
 export const eventAPI = {
   getAllEvents: async () => {
     try {
-      const response = await api.get('/events');
+      const response = await api.get(ENDPOINTS.EVENTS);
       return response.data;
     } catch (error) {
       console.error('Error fetching events:', error);
@@ -94,7 +91,7 @@ export const eventAPI = {
 
   getEventById: async (id) => {
     try {
-      const response = await api.get(`/events/${id}`);
+      const response = await api.get(`${ENDPOINTS.EVENTS}/${id}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching event:', error);
