@@ -12,6 +12,17 @@ export default defineConfig({
       '@': resolve(__dirname, './src'),
     },
   },
+  server: {
+    cors: true,
+    proxy: {
+      '/api': {
+        target: 'https://postman-backend-omega.vercel.app',
+        changeOrigin: true,
+        secure: true,
+        credentials: true
+      }
+    }
+  },
   optimizeDeps: {
     include: [
       'react',
