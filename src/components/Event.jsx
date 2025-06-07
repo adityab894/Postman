@@ -19,11 +19,17 @@ function Event() {
     const fetchEvents = async () => {
       try {
         const data = await eventAPI.getAllEvents();
-        // Sort events by date in descending order (newest first)
-        const sortedEvents = data.sort(
-          (a, b) => new Date(b.date) - new Date(a.date)
-        );
-        setEvents(sortedEvents);
+        // Ensure data is an array before sorting
+        if (Array.isArray(data)) {
+          // Sort events by date in descending order (newest first)
+          const sortedEvents = data.sort(
+            (a, b) => new Date(b.date) - new Date(a.date)
+          );
+          setEvents(sortedEvents);
+        } else {
+          console.error('Received non-array data:', data);
+          setEvents([]);
+        }
         setError(null);
       } catch (error) {
         console.error("Error fetching events:", error);
@@ -57,105 +63,57 @@ function Event() {
   }
 
   return (
-    <div className="relative w-screen min-h-screen bg-white overflow-hidden">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 my-6 sm:my-10 flex flex-col items-center justify-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl text-black font-bold text-center mb-8 sm:mb-12 uppercase border-b-2 border-black pb-2 sm:pb-4">
-          EVENTS
-        </h2>
-
-        {/* Image Gallery */}
-          <div className="bg-gray-50 text-black flex flex-col justify-center items-center gap-2 w-full">
-            <div className="flex flex-col sm:flex-row gap-2 w-full"> 
-              <div className="w-full sm:w-1/2">
-                <img src={memory} alt="Memory" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-black mb-8">Upcoming Events</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {events.map((event) => (
+          <div
+            key={event._id}
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+          >
+            {event.image && (
+              <div className="relative h-48">
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://placehold.co/600x400?text=No+Image+Available';
+                  }}
+                />
               </div>
-              <div className="w-full sm:w-1/2">
-                <img src={ghibli} alt="Ghibli" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
+            )}
+            <div className="p-6">
+              <h2 className="text-xl font-semibold text-black mb-2">
+                {event.title}
+              </h2>
+              <p className="text-gray-600 mb-4 line-clamp-2">
+                {event.description}
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center text-gray-600">
+                  <CalendarDays className="w-4 h-4 mr-2" />
+                  <span>{new Date(event.date).toLocaleDateString()}</span>
+                </div>
+                <div className="flex items-center text-gray-600">
+                  <TicketMinus className="w-4 h-4 mr-2" />
+                  <span>{event.availableSeats} seats available</span>
+                </div>
+                <div className="flex items-center text-gray-600">
+                  <MapPin className="w-4 h-4 mr-2" />
+                  <span className="line-clamp-1">{event.location}</span>
+                </div>
               </div>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2 w-full">
-              <div className="w-full sm:w-1/3">
-                <img src={postmanGhibli} alt="Postman Ghibli" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
-              </div>
-              <div className="w-full sm:w-1/3">
-                <img src={G} alt="G" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
-              </div>
-              <div className="w-full sm:w-1/3">
-                <img src={gummie} alt="Gummie" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
-              </div>
-            </div>
-            <img src={memory} alt="Memory" className="w-full h-32 sm:h-40 rounded-lg object-cover" />
-          </div>
-
-        {/* Events List */}
-        <div className="flex flex-col items-center justify-center w-full">
-          {events.length === 0 ? (
-            <div className="text-center py-8">
-              <p className="text-black">No events available at the moment.</p>
-            </div>
-          ) : (
-            events.map((event) => (
-              <div
-                key={event._id}
-                className="bg-white text-black flex flex-col sm:flex-row justify-center items-center rounded-2xl mt-4 shadow-lg gap-2 m-2 w-full"
+              <button
+                onClick={() => navigate(`/event/${event._id}`)}
+                className="mt-4 w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition-colors"
               >
-                <div className="bg-orange-400 text-black flex flex-col justify-center items-center p-4 sm:p-6 rounded-2xl w-full sm:w-auto mx-2">
-                  <h4 className="text-sm sm:text-base font-medium">
-                    {new Date(event.date).getFullYear()}
-                  </h4>
-                  <h1 className="text-2xl sm:text-3xl font-bold">
-                    {new Date(event.date).getDate()}
-                  </h1>
-                  <h4 className="text-sm sm:text-base font-medium">
-                    {new Date(event.date).toLocaleString("default", {
-                      month: "short",
-                    })}
-                  </h4>
-                </div>
-                <div className="h-auto sm:h-40 text-black flex flex-col justify-center items-start p-4 sm:p-6 border-b-2 sm:border-b-0 sm:border-r-2 border-gray-600 w-full">
-                  <div className="font-bold text-sm sm:text-base mb-2">
-                    {event.title}
-                  </div>
-                  <div className="text-xs sm:text-sm text-black">
-                    {event.description}
-                  </div>
-                </div>
-                <div className="flex flex-col justify-center items-center p-4 sm:p-6 gap-4 sm:gap-6 w-full">
-                  <div className="flex flex-col justify-center items-start sm:items-center px-4 sm:px-6 gap-2 w-full">
-                    <div className="flex flex-col items-start justify-center gap-4">
-                      <div className="flex flex-row gap-2 items-center w-full sm:w-auto">
-                        <CalendarDays className="w-4 h-4 sm:w-5 sm:h-5 text-black flex-shrink-0" />
-                        <h2 className="text-xs sm:text-sm text-black">
-                          {event.time}
-                        </h2>
-                      </div>
-                      <div className="flex flex-row gap-2 items-center w-full sm:w-auto">
-                        <TicketMinus className="w-4 h-4 sm:w-5 sm:h-5 text-black flex-shrink-0" />
-                        <h2 className="text-xs sm:text-sm text-black">
-                          {event.availableSeats} seats available
-                        </h2>
-                      </div>
-                      <div className="flex flex-row gap-2 items-center w-full sm:w-auto">
-                        <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-black flex-shrink-0" />
-                        <h2 className="text-xs sm:text-sm text-black">
-                          {event.location}
-                        </h2>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="flex justify-center items-center px-4 sm:px-6 gap-2 w-full">
-                    <button
-                      onClick={() => navigate(`/event/${event._id}`)}
-                      className="w-full bg-black text-white text-xs sm:text-sm py-2 px-4 rounded-md hover:bg-gray-800 transition-colors"
-                    >
-                      More Details
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
-        </div>
+                More Details
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

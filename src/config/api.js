@@ -47,7 +47,13 @@ api.interceptors.request.use(
 
 // Add response interceptor for better error handling
 api.interceptors.response.use(
-  (response) => response,
+  (response) => {
+    // Ensure response data is properly formatted
+    if (response.data && typeof response.data === 'object') {
+      return response;
+    }
+    return response;
+  },
   (error) => {
     console.error('API Error:', error);
     return Promise.reject(error);
@@ -82,7 +88,7 @@ export const eventAPI = {
   getAllEvents: async () => {
     try {
       const response = await api.get(ENDPOINTS.EVENTS);
-      return response.data;
+      return Array.isArray(response.data) ? response.data : [];
     } catch (error) {
       console.error('Error fetching events:', error);
       throw new Error(error.response?.data?.message || 'Failed to fetch events');
@@ -185,6 +191,19 @@ export const speakersAPI = {
     } catch (error) {
       console.error('Error fetching speakers:', error);
       throw new Error(error.response?.data?.message || 'Failed to fetch speakers');
+    }
+  }
+};
+
+// Speaker API functions
+export const speakerAPI = {
+  submitSpeaker: async (speakerData) => {
+    try {
+      const response = await api.post(`${ENDPOINTS.SPEAKERS}/submit`, speakerData);
+      return response.data;
+    } catch (error) {
+      console.error('Error submitting speaker:', error);
+      throw new Error(error.response?.data?.message || 'Failed to submit speaker');
     }
   }
 };
