@@ -14,7 +14,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
-  withCredentials: false
+  withCredentials: true
 });
 
 // Add request interceptor
@@ -49,6 +49,19 @@ const ENDPOINTS = {
   EVENTS: '/events',
   REGISTRATIONS: '/registrations',
   ADMIN: '/admin'
+};
+
+// Email API functions
+export const emailAPI = {
+  submitEmail: async (emailData) => {
+    try {
+      const response = await api.post('/email/submit', emailData);
+      return response.data;
+    } catch (error) {
+      console.error('Error submitting email:', error);
+      throw new Error(error.response?.data?.message || 'Failed to submit email');
+    }
+  }
 };
 
 // Event API functions
