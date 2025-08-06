@@ -16,6 +16,7 @@ import AdminDashboard from './components/admin/AdminDashboard';
 import CreateEvent from './components/admin/CreateEvent';
 import EditEvent from './components/admin/EditEvent';
 import AdminLogin from './components/admin/AdminLogin';
+import SubscribeForm from './components/SubscribeForm';
 
 // Admin route wrapper component
 const ProtectedRoute = ({ children }) => {
@@ -28,55 +29,58 @@ const ProtectedRoute = ({ children }) => {
 
 function App() {
   return (
-    <Router>
-      <Navbar />
-      <div className="relative pt-24 min-h-screen">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/speakers" element={<Speakers />} />
-          <Route path="/team" element={<MeetOurTeam />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/event/:eventId" element={<EventDetails />} />
-          <Route path="/lastPage" element={<LastPage />} />
-          <Route path="/aboutus" element={<About />} />
-          <Route path="/sponsor" element={<SponsorForm />} />
-          
-          {/* Admin Routes */}
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/events/create"
-            element={
-              <ProtectedRoute>
-                <CreateEvent />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/events/edit/:eventId"
-            element={
-              <ProtectedRoute>
-                <EditEvent />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-      </div>
-      <Footer />
-      <Toaster 
-        position="top-right"
-        expand={true}
-        richColors
-        closeButton
-      />
-    </Router>
+    <>
+      <SubscribeForm />
+      <Router>
+        <Navbar />
+        <div className="relative pt-24 min-h-screen">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/speakers" element={<Speakers />} />
+            <Route path="/team" element={<MeetOurTeam />} />
+            <Route path="/event" element={<Event />} />
+            <Route path="/event/:eventId" element={<EventDetails />} />
+            <Route path="/lastPage" element={<LastPage />} />
+            <Route path="/aboutus" element={<About />} />
+            <Route path="/sponsor" element={<SponsorForm />} />
+            
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route
+              path="/admin"
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/events/create"
+              element={
+                <ProtectedRoute>
+                  <CreateEvent />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/events/edit/:eventId"
+              element={
+                <ProtectedRoute>
+                  <EditEvent />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </div>
+        <Footer />
+        <Toaster 
+          position="top-right"
+          expand={true}
+          richColors
+          closeButton
+        />
+      </Router>
+    </>
   );
 }
 

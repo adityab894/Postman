@@ -6,6 +6,7 @@ const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002'
 export const ENDPOINTS = {
   SPEAKERS: `${API_BASE_URL}/api/speakers`,  
   SPONSORS: `${API_BASE_URL}/api/sponsors`,
+  SUBSCRIBE: `${API_BASE_URL}/api/subscribe`,
   EMAIL: `${API_BASE_URL}/api/email`,
   EVENTS: `${API_BASE_URL}/api/events`,
   USERS: `${API_BASE_URL}/api/users`,
