@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import footerSvg from "../assets/footer.svg";
 import { Link } from "react-router-dom";
 import Wave from 'react-wavify'
-import { Linkedin, Instagram, Github } from 'lucide-react';
+import { Linkedin, Instagram, Github, Phone } from 'lucide-react';
 
 const Footer = () => (
   <footer className="w-full relative overflow-hidden text-black">
@@ -58,6 +58,10 @@ const Footer = () => (
             <div className="flex flex-row gap-2 cursor-pointer" onClick={() => window.open('https://www.linkedin.com/company/postmanapipune/posts/?feedView=all', '_blank')}>
               <Linkedin />
               <p>LinkedIn</p>
+            </div>
+            <div className="flex flex-row gap-2 cursor-pointer" onClick={() => window.open('tel:8492956935', '_blank')}>
+              <Phone />
+              <p>+91 8492956935</p>
             </div>
           </div>
         </div>
