@@ -4,7 +4,6 @@ import footerSvg from "../assets/footer.svg";
 import { Link } from "react-router-dom";
 import Wave from "react-wavify";
 import { Linkedin, Instagram, Github, Phone } from "lucide-react";
-import { FaPhone } from "react-icons/fa6";
 
 const Footer = () => (
   <footer className="w-full relative overflow-hidden text-black">
@@ -123,13 +122,10 @@ const Footer = () => (
               <Linkedin />
               <p>LinkedIn</p>
             </div>
-            <div
-              className="flex flex-row gap-2 cursor-pointer"
-              onClick={() => window.open("tel:8492956935", "_blank")}
-            >
+            {/* <div className="flex items-center gap-2 mt-2">
               <Phone />
-              <p className="text-xs items-start">+91 8492956935</p>
-            </div>
+              <p>+91 8492956935</p>
+            </div> */}
           </div>
         </div>
 
