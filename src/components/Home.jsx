@@ -18,16 +18,19 @@ import puneDAO from "../assets/partners/puneDAO.svg";
 import spheron from "../assets/partners/spheron.svg";
 import Email from "./Email";
 import About from "./About";
+import konfhub from '../assets/partners/konfhub.svg'
 
 function Home() {
   const partners = [
     { name: "devDisplay", img: devDisplay },
     { name: "digitalOcean", img: digitalOcean },
     { name: "spheron", img: spheron },
+    { name: "konfhub", img: konfhub },
     { name: "kotlin", img: kotlin },
     { name: "GDSC", img: GDSC },
     { name: "girlInTech", img: girlInTech },
     { name: "MLH", img: MLH },
+    { name: "konfhub", img: konfhub },
     { name: "devDisplay", img: devDisplay },
     { name: "digitalOcean", img: digitalOcean },
     { name: "spheron", img: spheron },
@@ -38,6 +41,7 @@ function Home() {
     { name: "girlInTech", img: girlInTech },
     { name: "MLH", img: MLH },
     { name: "puneDAO", img: puneDAO },
+    { name: "konfhub", img: konfhub },
   ];
 
   const available = [

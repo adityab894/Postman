@@ -63,9 +63,9 @@ function Navbar() {
           </Link>
         </div>
 
-        <Link to="/lastPage" className="hidden md:block">
+        <Link to="/APIconf2025" className="hidden md:block">
           <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold cursor-pointer border-2 border-white hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
-            THE API CONF
+            THE API CONF 2025
           </div>
         </Link>
 
@@ -122,9 +122,9 @@ function Navbar() {
           >
             TEAM
           </Link>
-          <Link to="/lastPage">
+          <Link to="/APIconf2025">
             <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold cursor-pointer border-2 border-white hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
-              THE API CONF
+              THE API CONF 2025
             </div>
           </Link>
         </div>

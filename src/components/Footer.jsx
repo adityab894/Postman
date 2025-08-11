@@ -63,11 +63,11 @@ const Footer = () => (
               About
             </Link>
             <Link
-              to="/lastPage"
+              to="/APIconf2025"
               className="text-sm font-semibold hover:underline"
               style={{ color: "black" }}
             >
-              Community Day
+              API Conf 2025
             </Link>
             <Link
               to="/team"
