@@ -140,6 +140,7 @@ function LastPage() {
                     style={{
                       border: "none",
                       outline: "none",
+                      focus: 'none',
                     }}
                   >
                     &times;
