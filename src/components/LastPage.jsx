@@ -114,8 +114,9 @@ function LastPage() {
                   Book A Ticket &gt;
                 </button>
               </DialogTrigger>
+
               <DialogContent
-                className="max-w-4xl p-0 bg-white overflow-hidden"
+                className="w-full max-w-[90vw] sm:max-w-3xl p-0 bg-white overflow-hidden"
                 style={{
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
@@ -128,15 +129,16 @@ function LastPage() {
                   }
                 `}</style>
 
-                <DialogHeader className="flex flex-row justify-between p-4 border-b bg-white text-black">
-                  <DialogTitle>Book Your Ticket</DialogTitle>
+                <DialogHeader className="flex flex-row justify-between items-center p-4 border-b bg-white text-black">
+                  <DialogTitle className="text-base sm:text-lg">
+                    Book Your Ticket
+                  </DialogTitle>
                   <button
                     onClick={handleClose}
-                    className="absolute top-1 right-1 text-black hover:text-gray-700 text-2xl font-bold bg-transparent"
+                    className="text-black hover:text-gray-700 text-2xl font-bold bg-transparent"
                     aria-label="Close popup"
                     style={{
                       border: "none",
-                      focus: "none",
                       outline: "none",
                     }}
                   >
@@ -144,14 +146,24 @@ function LastPage() {
                   </button>
                 </DialogHeader>
 
-                <div className="hide-scrollbar" style={{ overflowY: "scroll" }}>
+                <div
+                  className="hide-scrollbar"
+                  style={{
+                    overflowY: "scroll",
+                    maxHeight: "80vh",
+                  }}
+                >
                   <iframe
                     src="https://konfhub.com/widget/api-conf-pune-2025?desc=false&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=002E6E&ticketCl=002E6E&btnColor=fb5850&fontFamily=Prompt&borderRadius=10"
                     id="konfhub-widget"
                     title="Register for THE API CONF PUNE 2025"
                     width="100%"
-                    height="500"
-                    style={{ border: "none" }}
+                    height="100%"
+                    style={{
+                      border: "none",
+                      minHeight: "60vh",
+                      maxHeight: "80vh",
+                    }}
                   ></iframe>
                 </div>
               </DialogContent>
