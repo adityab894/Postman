@@ -116,7 +116,7 @@ function LastPage() {
               </DialogTrigger>
 
               <DialogContent
-                className="w-full max-w-[90vw] sm:max-w-3xl p-0 bg-white overflow-hidden"
+                className="w-full max-w-[85vw] sm:max-w-3xl p-0 bg-white overflow-hidden"
                 style={{
                   scrollbarWidth: "none",
                   msOverflowStyle: "none",
