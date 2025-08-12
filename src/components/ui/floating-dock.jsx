@@ -57,12 +57,18 @@ const FloatingDockMobileSlideLeft = ({ items, className }) => {
       <button
         onClick={() => setOpen(!open)}
         className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-transform duration-200 ease-out ml-2"
+        style={{ border: 'none',
+          focus: 'none',
+
+          outline: 'none',
+         }}
       >
-        <MoreHorizontal
-          className="h-10 w-10 font-bold"
-          color="black"
-          strokeWidth={2.5}
-        />
+        {/* Custom three dots with proper spacing */}
+        <div className="flex items-center gap-1">
+          <div className="w-1 h-1 bg-orange-500 rounded-full"></div>
+          <div className="w-1 h-1 bg-orange-500 rounded-full"></div>
+          <div className="w-1 h-1 bg-orange-500 rounded-full"></div>
+        </div>
       </button>
     </div>
   );
