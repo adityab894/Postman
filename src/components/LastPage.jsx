@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import APIConf from "../assets/APIConf.svg";
+import APIConf from "../assets/APIConf.jpg";
 import postmanFun from "../assets/postman-fun.svg";
 import speaker from "../assets/callForSpeaker.svg";
 import sponser from "../assets/callForSponsors.svg";
@@ -53,7 +53,6 @@ function LastPage() {
         {" "}
         <div className="flex flex-col w-full justify-center items-center gap-6">
           <img src={APIConf} alt="" className="h-auto w-auto" />
-          <img src={postmanFun} alt="" className="h-auto w-auto" />
         </div>
         <section className="flex flex-col md:flex-row gap-8 justify-center items-start mt-16 px-4 md:px-0">
           <div className="bg-white rounded-xl shadow-md p-6 md:p-8 max-w-md">
