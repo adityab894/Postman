@@ -8,10 +8,23 @@ import GridBackground from "./GridBackground";
 import SpeakerSubmissionModal from "./SpeakerSubmissionModal";
 import { FloatingDock } from "./ui/floating-dock";
 import { Megaphone, Handshake } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 function LastPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const handleSponsorClick = () => {
     navigate("/sponsor");
@@ -92,15 +105,61 @@ function LastPage() {
               the ache of burnout, the silence around mental health, the
               disconnection from the body.
             </p>
-            <button
-              className="text-sm bg-yellow-400 hover:bg-yellow-300 text-black py-2 rounded-full shadow transition-all relative"
-              style={{ border: "1px solid #000" }}
-              onClick={() =>
-                window.open("https://konfhub.com/api-conf-pune-2025", "_blank")
-              }
-            >
-              Book A Ticket &gt;
-            </button>
+
+            {/* Dialog Trigger */}
+            <Dialog open={open} onOpenChange={setOpen}>
+              <DialogTrigger asChild>
+                <button
+                  className="text-sm bg-yellow-400 hover:bg-yellow-300 text-black py-2 px-4 rounded-full shadow transition-all relative"
+                  style={{ border: "1px solid #000" }}
+                >
+                  Book A Ticket &gt;
+                </button>
+              </DialogTrigger>
+
+              {/* Dialog Content */}
+              <DialogContent
+                className="max-w-4xl p-0 bg-white overflow-hidden"
+                style={{
+                  scrollbarWidth: "none", // Firefox
+                  msOverflowStyle: "none", // IE/Edge
+                }}
+              >
+                <style jsx>{`
+                  /* Hide scrollbar in WebKit browsers */
+                  .hide-scrollbar::-webkit-scrollbar {
+                    display: none;
+                  }
+                `}</style>
+
+                <DialogHeader className="flex flex-row justify-between p-4 border-b bg-white text-black">
+                  <DialogTitle>Book Your Ticket</DialogTitle>
+                  <button
+                    onClick={handleClose}
+                    className="absolute top-1 right-1 text-black hover:text-gray-700 text-2xl font-bold bg-transparent"
+                    aria-label="Close popup"
+                    style={{
+                      border: "none",
+                      focus: "none",
+                      outline: "none",
+                    }}
+                  >
+                    &times;
+                  </button>
+                </DialogHeader>
+
+                <div className="hide-scrollbar" style={{ overflowY: "scroll" }}>
+                  <iframe
+                    src="https://konfhub.com/widget/api-conf-pune-2025?desc=false&secondaryBg=F7F7F7&ticketBg=F7F7F7&borderCl=F7F7F7&bg=FFFFFF&fontColor=002E6E&ticketCl=002E6E&btnColor=fb5850&fontFamily=Prompt&borderRadius=10"
+                    id="konfhub-widget"
+                    title="Register for THE API CONF PUNE 2025"
+                    width="100%"
+                    height="500"
+                    style={{ border: "none" }}
+                  ></iframe>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </section>
         {/* <div className="m-20 flex flex-wrap justify-center gap-8 lg:gap-12">
