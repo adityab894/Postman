@@ -105,8 +105,6 @@ function LastPage() {
               the ache of burnout, the silence around mental health, the
               disconnection from the body.
             </p>
-
-            {/* Dialog Trigger */}
             <Dialog open={open} onOpenChange={setOpen}>
               <DialogTrigger asChild>
                 <button
@@ -116,13 +114,11 @@ function LastPage() {
                   Book A Ticket &gt;
                 </button>
               </DialogTrigger>
-
-              {/* Dialog Content */}
               <DialogContent
                 className="max-w-4xl p-0 bg-white overflow-hidden"
                 style={{
-                  scrollbarWidth: "none", // Firefox
-                  msOverflowStyle: "none", // IE/Edge
+                  scrollbarWidth: "none",
+                  msOverflowStyle: "none",
                 }}
               >
                 <style jsx>{`

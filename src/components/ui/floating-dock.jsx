@@ -7,25 +7,22 @@ import { useState, useRef } from "react";
 export const FloatingDock = ({ items, desktopClassName, mobileClassName }) => {
   return (
     <>
-      {/* Desktop version stays as it is */}
       <FloatingDockDesktop items={items} className={desktopClassName} />
-      {/* Mobile version with smooth left-slide */}
       <FloatingDockMobileSlideLeft items={items} className={mobileClassName} />
     </>
   );
 };
 
-// ✅ Mobile View - Smooth Left Slide
 const FloatingDockMobileSlideLeft = ({ items, className }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div
       className={cn(
-        "relative flex items-center justify-end md:hidden", // mobile only
+        "relative flex items-center justify-end md:hidden",
         className
       )}
-      style={{ paddingTop: "4px" }} // reduced top padding
+      style={{ paddingTop: "4px" }}
     >
       <AnimatePresence>
         {open && (
@@ -34,7 +31,7 @@ const FloatingDockMobileSlideLeft = ({ items, className }) => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 10 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="flex flex-row-reverse gap-2"
+            className="flex flex-row-reverse gap-3"
           >
             {items.map((item, idx) => (
               <motion.a
@@ -48,31 +45,29 @@ const FloatingDockMobileSlideLeft = ({ items, className }) => {
                   duration: 0.25,
                   ease: "easeInOut",
                 }}
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition pb-2 pr-2"
+                className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition pt-2 pl-2"
               >
-                <div className="h-4 w-4">{item.icon}</div>
+                <div className="h-8 w-8">{item.icon}</div>
               </motion.a>
             ))}
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Black MoreHorizontal Button */}
       <button
         onClick={() => setOpen(!open)}
-        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-transform duration-200 ease-out ml-2"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300 transition-transform duration-200 ease-out ml-2"
       >
         <MoreHorizontal
-          className="h-5 w-5"
-          color="black" // forces icon stroke to black
-          strokeWidth={2.5} // makes the lines thicker if needed
+          className="h-10 w-10 font-bold"
+          color="black"
+          strokeWidth={2.5}
         />
       </button>
     </div>
   );
 };
 
-// 💻 Desktop View - Original hover version
 const FloatingDockDesktop = ({ items, className }) => {
   let mouseX = useMotionValue(Infinity);
   return (
@@ -102,7 +97,7 @@ function IconContainer({ title, icon, href, mouseX }) {
         ref={ref}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
-        className="relative flex aspect-square items-center justify-center rounded-full bg-gray-50 w-10 h-10"
+        className="relative flex aspect-square items-center justify-center rounded-full bg-gray-50 w-12 h-12"
         animate={{ scale }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
@@ -118,7 +113,7 @@ function IconContainer({ title, icon, href, mouseX }) {
             </motion.div>
           )}
         </AnimatePresence>
-        <div className="flex items-center justify-center w-5 h-5">{icon}</div>
+        <div className="flex items-center justify-center w-14 h-14">{icon}</div>
       </motion.div>
     </a>
   );
