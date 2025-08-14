@@ -68,7 +68,7 @@ const Speakers = () => {
   ];
 
   return (
-    <section className=" w-screen bg-white py-12 px-4 md:px-8">
+    <section className=" w-screen bg-white py-12 px-4 md:px-8 mt-6">
       <div className="relative min-h-screen overflow-hidden">
         <div className="relative z-10 max-w-6xl mx-auto my-5">
           <h2 className="text-4xl text-black font-bold text-center mb-12 uppercase border-b-2 border-black pb-4">

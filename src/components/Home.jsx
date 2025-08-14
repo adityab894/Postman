@@ -68,7 +68,7 @@ function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-white flex flex-col items-center justify-center mt-24">
       <div className="relative z-10 flex flex-col items-center justify-center px-2 sm:px-4 md:px-6 lg:px-8 max-w-full">
         <div className="bg-white rounded-2xl shadow-xl flex flex-col items-center justify-center mx-auto max-w-full w-full sm:w-auto">
           <div className="w-full flex flex-row items-center bg-gray-50 rounded-t-2xl p-2 sm:p-3 mb-1 gap-2 sm:gap-4">

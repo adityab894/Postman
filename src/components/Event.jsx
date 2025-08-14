@@ -58,7 +58,7 @@ function Event() {
   }
 
   return (
-    <div className="relative w-screen min-h-screen bg-white overflow-hidden">
+    <div className="relative w-screen min-h-screen bg-white overflow-hidden mt-10">
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 my-6 sm:my-10 flex flex-col items-center justify-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl text-black font-bold text-center mb-8 sm:mb-12 uppercase border-b-2 border-black pb-2 sm:pb-4">
           EVENTS

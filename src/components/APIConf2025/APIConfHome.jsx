@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import APIConf from "../assets/APIConf.jpg";
-import postmanFun from "../assets/postman-fun.svg";
-import speaker from "../assets/callForSpeaker.svg";
-import sponser from "../assets/callForSponsors.svg";
-import GridBackground from "./GridBackground";
+import APIConf from '../../assets/APIConf/APIConf.jpg';
+// import postmanFun from "../assets/postman-fun.svg";
+// import speaker from "../assets/callForSpeaker.svg";
+// import sponser from "../assets/callForSponsors.svg";
+// import GridBackground from "../GridBackground";
 import SpeakerSubmissionModal from "./SpeakerSubmissionModal";
-import { FloatingDock } from "./ui/floating-dock";
+import { FloatingDock } from "../ui/floating-dock";
 import { Megaphone, Handshake } from "lucide-react";
 import {
   Dialog,
@@ -16,8 +16,9 @@ import {
   DialogTrigger,
   DialogClose,
 } from "@/components/ui/dialog";
+import APINavbar from "./APINavbar";
 
-function LastPage() {
+function APIConfHome() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
@@ -56,10 +57,11 @@ function LastPage() {
 
   return (
     <div className="relative w-screen min-h-screen bg-white overflow-hidden">
+      <APINavbar />
       <FloatingDock
         items={dockItemsWithClick}
-        desktopClassName="fixed top-8 right-8 z-50"
-        mobileClassName="fixed top-4 right-4 z-50"
+        desktopClassName="fixed top-10 right-8 z-50"
+        mobileClassName="fixed top-8 right-4 z-50"
       />
 
       <div className="relative pt-24">
@@ -241,4 +243,4 @@ function LastPage() {
   );
 }
 
-export default LastPage;
+export default APIConfHome;
