@@ -36,7 +36,7 @@ import { ENDPOINTS } from '../../config/api';
 const sponsorshipPackages = [
   {
     name: "TITLE",
-    price: "₹2,50,000",
+    price: "₹5,00,000",
     color: "#FF9B45",
     benefits: [
       "Exclusive title Sponsor Recognition",
@@ -53,7 +53,7 @@ const sponsorshipPackages = [
   },
   {
     name: "GOLD",
-    price: "₹1,50,000",
+    price: "₹4,50,000",
     color: "#FFD700",
     benefits: [
       "Premium logo placement on Event Website",
@@ -67,7 +67,7 @@ const sponsorshipPackages = [
   },
   {
     name: "SILVER",
-    price: "₹1,00,000",
+    price: "₹3,50,000",
     color: "#C0C0C0",
     benefits: [
       "Logo placement on Event Website",
@@ -80,7 +80,7 @@ const sponsorshipPackages = [
   },
   {
     name: "ASSOCIATE",
-    price: "₹50,000",
+    price: "₹2,00,000",
     color: "#8D0B41",
     benefits: [
       "Logo placement on Event Website",
@@ -91,7 +91,7 @@ const sponsorshipPackages = [
   },
   {
     name: "IN KIND",
-    price: "Custom",
+    price: "50,000 - 1,00,000",
     color: "#57B4BA",
     benefits: [
       "Logo placement on event website",
