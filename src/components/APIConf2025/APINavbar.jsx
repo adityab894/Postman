@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import logo from '../../assets/logo.png'
 
 function APINavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -28,19 +29,20 @@ function APINavbar() {
         scrolled ? "py-2" : "py-4"
       }`}
     >
-      <div className="w-80 max-w-3xl sm:w-full bg-gray-300 flex justify-between items-center gap-20 pl-2 pr-2 sm:pl-0 rounded-full shadow-md border border-orange-300 transition-all duration-300 ease-in-out">
-        <Link to="/APIconf2025" className="flex items-center gap-2">
-          <img
-            src=""
-            alt="Conference Logo"
-            className={`rounded-full border-2 border-white transition-all duration-300 ${
-              scrolled ? "h-10 w-10" : "h-12 w-12"
-            }`}
-          />
-          <span className="font-bold text-lg text-orange-600 hidden sm:inline">
-            API Conf 2025
-          </span>
-        </Link>
+      <div className="w-80 max-w-lg sm:w-full bg-gray-300 flex justify-between items-center gap-2 pr-2 sm:pl-0 rounded-full shadow-md border border-orange-300 transition-all duration-300 ease-in-out">
+        <div className="flex items-center flex-shrink-0">
+          <Link to="/" className="hover:opacity-80 transition-opacity">
+            <img
+              src={logo}
+              alt="Logo"
+              className={`object-contain border-white border-2 rounded-full transition-all duration-300 ease-in-out ${
+                scrolled
+                  ? "h-8 w-8 sm:h-10 sm:w-10"
+                  : "h-12 w-12 sm:h-14 sm:w-14"
+              }`}
+            />
+          </Link>
+        </div>
 
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (

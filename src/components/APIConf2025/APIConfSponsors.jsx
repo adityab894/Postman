@@ -52,9 +52,9 @@ const APIConfSponsors = () => {
   const getSponsorSize = (tier) => {
     switch (tier) {
       case 'title':
-        return 'w-50 h-20';
+        return 'w-40 h-20';
       case 'diamond':
-        return 'w-64 h-24';
+        return 'w-40 h-20';
       case 'bronze':
         return 'w-36 h-14';
       case 'booth':

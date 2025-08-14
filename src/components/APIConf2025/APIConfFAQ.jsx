@@ -16,47 +16,47 @@ function APIConfFAQ() {
     {
       question: "What is API Conf 2025?",
       answer:
-        "API Conf 2025 is a global community-driven tech conference, hosted by the Google Developer Groups (GDG) community. Each API Conf event is crafted by its GDG organizers to fit the learning needs and interests of their local developer community, with a strong focus on knowledge exchange, networking, and learning about Google developer technologies.[2][4]",
+        "API Conf 2025 is a global community-driven tech conference, hosted by the Postman Community Pune. This API Conf event is India's premier API conference, powered by Postman. This event aims to bring together developers, tech enthusiasts, and industry leaders to explore the latest in API technologies.",
     },
     {
       question: "Who can register for API Conf 2025?",
       answer:
-        "API Conf 2025 is open to all developers, technologists, students, tech professionals, and anyone interested in learning about Google's developer technologies. Whether you're a beginner or an experienced developer, everyone is welcome to join and participate in the event.[2][5]",
+        "API Conf 2025 is open to all developers, technologists, students, tech professionals, and anyone interested in learning about API, Postman tools. Whether you're a beginner or an experienced developer, everyone is welcome to join and participate in the event.",
     },
     {
       question: "Is it mandatory to register to participate in the event?",
       answer:
-        "Yes, registration is mandatory to participate in API Conf 2025. Most API Conf events require an RSVP to help organizers plan better events and manage attendance. Registration numbers help us ensure we have adequate resources and space for all attendees.[4][9]",
+        "Yes, registration is mandatory to participate in API Conf 2025. Most API Conf events require an RSVP to help organizers plan better events and manage attendance. Registration numbers help us ensure we have adequate resources and space for all attendees.",
     },
     {
       question: "I'm a beginner in programming. Can I still register?",
       answer:
-        "Absolutely! API Conf 2025 welcomes developers of all skill levels, including beginners. The event features sessions ranging from introductory topics to advanced technical content. It's a great opportunity for beginners to learn, network with experienced developers, and get inspired to continue their programming journey.[2][5]",
+        "Absolutely! API Conf 2025 welcomes developers of all skill levels, including beginners. The event features sessions ranging from introductory topics to advanced technical content. It's a great opportunity for beginners to learn, network with experienced developers, and get inspired to continue their programming journey.",
     },
     {
       question: "What will attendees get by participating in the event?",
       answer:
-        "Attendees will gain access to technical sessions, workshops, networking opportunities, hands-on experiences with Google technologies, learning about the latest trends in AI/ML, Android, Firebase, Google Cloud, and more. You'll also receive swag, have opportunities to connect with industry experts, and potentially win prizes during various activities.[2][3]",
+        "Attendees will gain access to technical sessions, workshops, networking opportunities, hands-on experiences with Postman tools, learning about the latest trends in API development, and more. You'll also receive swags, have opportunities to connect with industry experts, and potentially win prizes during various activities.",
     },
-    {
-      question: "How can I become a member of GDG?",
-      answer:
-        "You can become a member by visiting the GDG Event Platform or using the map tool to find a Google Developer Group chapter near you. Visit each Google Developer Group's page to find more information about the group, events, and how to join. You can also become an organizer and lead a GDG chapter in your local community.[4][5]",
-    },
+    // {
+    //   question: "How can I become a member of GDG?",
+    //   answer:
+    //     "You can become a member by visiting the GDG Event Platform or using the map tool to find a Google Developer Group chapter near you. Visit each Google Developer Group's page to find more information about the group, events, and how to join. You can also become an organizer and lead a GDG chapter in your local community.[4][5]",
+    // },
     {
       question: "How can I communicate my queries?",
       answer:
-        "For any inquiries or concerns regarding API Conf 2025, you can reach out to the organizers at connect@gdgpune.in. You can also contact the GDG Pune community through their official social media channels or community platforms.[9][5]",
+        "For any inquiries or concerns regarding API Conf 2025, you can reach out to the organizers at LinkedIn https://www.linkedin.com/company/postmanapipune/. You can also contact the Postman Community Pune through their official social media channels or community platforms.",
     },
     {
       question: "What technologies will be covered at API Conf 2025?",
       answer:
-        "API Conf 2025 covers a wide range of Google technologies including Android development, Firebase, Flutter for cross-platform development, Google Cloud, Machine Learning, TensorFlow, AI/ML, Web Development, and much more. This year's focus includes Responsible AI and emerging technologies.[3][4][7]",
+        "API Conf 2025 covers a wide range of API tools including Postman for cross-platform development, Web Development, and much more. This year's focus includes emerging technologies.",
     },
     {
       question: "Will the event be in-person or virtual?",
       answer:
-        "API Conf 2025 is an in-person event held at The Westin, Koregaon Park, Pune. However, API Conf events globally can be in-person, online, or hybrid depending on what each GDG chapter decides is best for their community.[3][9]",
+        "API Conf 2025 is an in-person event held at Pune, Maharashtra.",
     },
     {
       question: "Can I speak at API Conf 2025?",
