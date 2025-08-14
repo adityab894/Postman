@@ -61,12 +61,12 @@ function APIConfHome() {
       <FloatingDock
         items={dockItemsWithClick}
         desktopClassName="fixed top-10 right-8 z-50"
-        mobileClassName="fixed top-8 right-4 z-50"
+        mobileClassName="fixed top-18 right-4 z-50"
       />
 
       <div className="relative pt-24">
         {" "}
-        <div className="flex flex-col w-full justify-center items-center gap-6">
+        <div className="flex flex-col w-full justify-center items-center gap-6 mt-10 sm:mt-2">
           <img src={APIConf} alt="" className="h-auto w-auto" />
         </div>
         <section className="flex flex-col md:flex-row gap-8 justify-center items-start mt-16 px-4 md:px-0">

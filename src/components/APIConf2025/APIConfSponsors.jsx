@@ -75,24 +75,21 @@ const APIConfSponsors = () => {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Sponsors dedicated to building remarkable experience! Thank you to all our partners 
-              who make DevFest Pune 2024 possible.
+              who make The API Conf Pune 2025 possible.
             </p>
           </div>
         </div>
       </div>
 
-      {/* Sponsors Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {sponsorTiers.map((tierGroup, index) => (
           <div key={index} className="mb-16">
-            {/* Tier Title */}
             <div className="text-start mb-8">
               <div className={`inline-flex items-start px-6 py-3 rounded-full text-black font-semibold text-lg`}>
                 {tierGroup.title}
               </div>
             </div>
 
-            {/* Sponsors Grid */}
             <div className={`grid gap-8 justify-items-start ${
               tierGroup.sponsors.length === 1 
                 ? 'grid-cols-1' 
@@ -109,8 +106,6 @@ const APIConfSponsors = () => {
                 >
                   <div className="bg-white rounded-xl shadow-lg hover:shadow-xl p-6 border border-gray-200 group-hover:border-blue-300">
                     <div className={`${getSponsorSize(tierGroup.tier)} mx-auto flex items-start justify-center bg-white rounded-lg overflow-hidden`}>
-                      {/* Placeholder for sponsor logo */}
-                      {/* Uncomment below and comment above section when you have actual logos */}
                       <img 
                         src={sponsor.img} 
                         alt={sponsor.name}
@@ -125,7 +120,6 @@ const APIConfSponsors = () => {
         ))}
       </div>
 
-      {/* Footer */}
       <footer className="bg-gray-900 text-white py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-400">
