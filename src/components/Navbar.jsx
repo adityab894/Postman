@@ -28,7 +28,7 @@ function Navbar() {
         className={`w-80 max-w-3xl sm:w-full bg-gray-300 flex justify-between items-center pl-2 pr-2 sm:pl-0 rounded-full shadow-md border border-orange-300 transition-all duration-300 ease-in-out ${
           scrolled
             ? "my-1 sm:my-2 py-1 px-2"
-            : "my-2 sm:my-3 py-2 px-4"
+            : "my-2 sm:my-3 py-1 px-4"
         }`}
         style={{
           transform: scrolled ? "scale(0.96)" : "scale(1)",
