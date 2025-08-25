@@ -3,7 +3,8 @@ import logo from "../assets/logo.png";
 import footerSvg from "../assets/footer.svg";
 import { Link } from "react-router-dom";
 import Wave from "react-wavify";
-import { Linkedin, Instagram, Github, Phone, Twitter  } from "lucide-react";
+import { Linkedin, Instagram, Github, Phone  } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => (
   <footer className="w-full relative overflow-hidden text-black">
@@ -131,7 +132,7 @@ const Footer = () => (
                 )
               }
             >
-              <Twitter className="h-5 w-5"/>
+              <FaXTwitter className="h-5 w-5"/>
               <p>Twitter</p>
             </div>
             {/* <div className="flex items-center gap-2 mt-2">
