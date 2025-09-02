@@ -91,7 +91,7 @@ function Home() {
                 <IoIosArrowDown className="h-3 w-3 text-gray-400" />
               </div>
               <div className="truncate text-xs sm:text-base text-orange-600">
-                POSTMAN Community Pune
+                THE API Community Pune
               </div>
             </div>
             <div className="h-8 sm:h-10 sm:w-25 font-semibold flex flex-row items-center justify-around gap-1 sm:gap-2 bg-blue-600 rounded-md cursor-pointer shrink-0 mx-2 sm:mx-0 px-2 sm:px-4 text-white hover:bg-blue-700 transition-colors">

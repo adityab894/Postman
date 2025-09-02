@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/logo.png";
+import logo from "../assets/CommunityLogos/api.png";
 import footerSvg from "../assets/footer.svg";
 import { Link } from "react-router-dom";
 import Wave from "react-wavify";
@@ -31,7 +31,7 @@ const Footer = () => (
         <div className="max-w-xs mb-8 md:mb-0">
           <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
             <img src={logo} alt="Postman Logo" className="w-10 h-10" />
-            <h2 className="text-xl font-bold">Postman Community Pune</h2>
+            <h2 className="text-xl font-bold">The API Community Pune</h2>
           </div>
           <p className="text-sm font-semibold">
             A vibrant community of API enthusiasts in Pune, dedicated to
@@ -149,7 +149,7 @@ const Footer = () => (
 
       <div className="w-full mt-auto border-t-1 border-gray-300">
         <div className="text-center text-sm py-4">
-          © {new Date().getFullYear()} Postman Community Pune. All rights
+          © {new Date().getFullYear()} THE API Community Pune. All rights
           reserved.
         </div>
       </div>

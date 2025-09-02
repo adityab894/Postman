@@ -16,7 +16,7 @@ function APIConfFAQ() {
     {
       question: "What is API Conf 2025?",
       answer:
-        "API Conf 2025 is a global community-driven tech conference, hosted by the Postman Community Pune. This API Conf event is India's premier API conference, powered by Postman. This event aims to bring together developers, tech enthusiasts, and industry leaders to explore the latest in API technologies.",
+        "API Conf 2025 is a global community-driven tech conference, hosted by the The API Community Pune. This API Conf event is India's premier API conference, powered by Postman. This event aims to bring together developers, tech enthusiasts, and industry leaders to explore the latest in API technologies.",
     },
     {
       question: "Who can register for API Conf 2025?",
@@ -46,7 +46,7 @@ function APIConfFAQ() {
     {
       question: "How can I communicate my queries?",
       answer:
-        "For any inquiries or concerns regarding API Conf 2025, you can reach out to the organizers at LinkedIn https://www.linkedin.com/company/postmanapipune/. You can also contact the Postman Community Pune through their official social media channels or community platforms.",
+        "For any inquiries or concerns regarding API Conf 2025, you can reach out to the organizers at LinkedIn https://www.linkedin.com/company/postmanapipune/. You can also contact the The API Community Pune through their official social media channels or community platforms.",
     },
     {
       question: "What technologies will be covered at API Conf 2025?",
