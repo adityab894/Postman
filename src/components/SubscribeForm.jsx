@@ -53,7 +53,7 @@ const SubscribeForm = () => {
 
   return (
     <div className="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-50">
-      <div className="bg-orange-500 rounded-lg shadow-lg p-6 sm:p-8 max-w-md w-[95vw] sm:w-full relative mx-2">
+      <div className="rounded-lg shadow-lg p-6 sm:p-8 max-w-md w-[95vw] sm:w-full relative mx-2" style={{ backgroundColor: '#3097B8' }}>
         <button
           onClick={handleClose}
           className="absolute top-1 right-1 text-white hover:text-gray-300 text-xl font-bold bg-transparent"
