@@ -62,12 +62,12 @@ function App() {
           <Route path="/sponsor" element={<SponsorForm />} />
 
           {/* APIConf 2025 Pages */}
-          <Route path="/APIconf2025" element={<APIConfHome />} />
-          <Route path="/APIconf2025/speakers" element={<APIConfSpeakers />} />
+          {/* <Route path="/APIconf2025" element={<APIConfHome />} /> */}
+          {/* <Route path="/APIconf2025/speakers" element={<APIConfSpeakers />} />
           <Route path="/APIconf2025/sponsors" element={<APIConfSponsors />} />
           <Route path="/APIconf2025/faq" element={<APIConfFAQ />} />
           <Route path="/APIconf2025/team" element={<APIConfTeam />} />
-          <Route path="/APIconf2025/agenda" element={<APIConfAgenda />} />
+          <Route path="/APIconf2025/agenda" element={<APIConfAgenda />} /> */}
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

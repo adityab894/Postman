@@ -25,10 +25,10 @@ function Navbar() {
   return (
     <div className="w-full fixed top-0 z-30 flex flex-col items-center transition-all duration-300">
       <div
-        className={`w-80 max-w-3xl sm:w-full bg-gray-300 flex justify-between items-center pl-2 pr-2 sm:pl-0 rounded-full shadow-md border border-orange-300 transition-all duration-300 ease-in-out ${
+        className={`w-fit min-w-80 max-w-4xl mx-auto bg-gray-300 flex items-center gap-4 pr-2 sm:pr-4 rounded-full shadow-md border border-orange-300 transition-all duration-300 ease-in-out ${
           scrolled
-            ? "my-1 sm:my-2 py-1 px-2"
-            : "my-2 sm:my-3 py-1 px-4"
+            ? "my-1 sm:my-2 py-1 px-1"
+            : "my-2 sm:my-3 py-1 px-1"
         }`}
         style={{
           transform: scrolled ? "scale(0.96)" : "scale(1)",
@@ -51,7 +51,7 @@ function Navbar() {
 
         {/* Desktop Menu */}
         <div
-          className={`hidden md:flex text-sm font-extrabold text-black transition-all duration-300 ease-in-out ${
+          className={`hidden md:flex ml-auto text-sm font-extrabold text-black transition-all duration-300 ease-in-out ${
             scrolled ? "gap-3" : "gap-6"
           }`}
         >
@@ -78,7 +78,7 @@ function Navbar() {
         </div>
 
         {/* CTA Button */}
-        <Link to="/APIconf2025" className="hidden md:block">
+        {/* <Link to="/APIconf2025" className="hidden md:block">
           <div
             className={`bg-orange-500 text-white px-4 rounded-full text-sm font-semibold cursor-pointer border-2 border-white hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 ${
               scrolled ? "py-1 text-xs" : "py-2 text-sm"
@@ -86,10 +86,10 @@ function Navbar() {
           >
             THE API CONF 2025
           </div>
-        </Link>
+        </Link> */}
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="md:hidden ml-auto">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="p-2 rounded-full text-black focus:outline-none"
