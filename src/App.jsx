@@ -6,7 +6,7 @@ import MeetOurTeam from './components/MeetOurTeam';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import GridBackground from './components/GridBackground';
-import Event from './components/Event';
+import Event from './components/Event.jsx';
 import About from './components/About';
 import SponsorForm from './components/APIConf2025/SponsorForm';
 import { Toaster } from "sonner";

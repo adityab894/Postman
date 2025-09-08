@@ -161,8 +161,8 @@ function EventDetails() {
             {/* Event Info Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <div className="flex items-center gap-4">
-                <div className="bg-orange-100 p-3 rounded-full">
-                  <Calendar className="w-6 h-6 text-orange-600" />
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Calendar className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-sm text-black font-medium">Date</p>
@@ -173,8 +173,8 @@ function EventDetails() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="bg-orange-100 p-3 rounded-full">
-                  <Clock className="w-6 h-6 text-orange-600" />
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Clock className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-sm text-black font-medium">Time</p>
@@ -183,8 +183,8 @@ function EventDetails() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="bg-orange-100 p-3 rounded-full">
-                  <MapPin className="w-6 h-6 text-orange-600" />
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <MapPin className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-sm text-black font-medium">Location</p>
@@ -193,8 +193,8 @@ function EventDetails() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="bg-orange-100 p-3 rounded-full">
-                  <Users className="w-6 h-6 text-orange-600" />
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <Users className="w-6 h-6 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-sm text-black font-medium">Available Seats</p>
