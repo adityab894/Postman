@@ -100,7 +100,7 @@ function Event() {
                 key={event._id}
                 className="bg-white text-black flex flex-col sm:flex-row justify-center items-center rounded-2xl mt-4 shadow-lg gap-2 m-2 w-full"
               >
-                <div className="bg-orange-400 text-black flex flex-col justify-center items-center p-4 sm:p-6 rounded-2xl w-full sm:w-auto mx-2">
+                <div className="text-black flex flex-col justify-center items-center p-4 sm:p-6 rounded-2xl w-full sm:w-auto mx-2" style={{backgroundColor: '#3097B8'}}>
                   <h4 className="text-sm sm:text-base font-medium">
                     {new Date(event.date).getFullYear()}
                   </h4>
