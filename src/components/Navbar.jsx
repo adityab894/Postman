@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/CommunityLogos/api.png";
+import logo from "../assets/CommunityLogos/logo.png";
 import { Menu, X } from "lucide-react";
 
 function Navbar() {
@@ -25,7 +25,7 @@ function Navbar() {
   return (
     <div className="w-full fixed top-0 z-30 flex flex-col items-center transition-all duration-300">
       <div
-        className={`w-fit min-w-80 max-w-4xl mx-auto bg-gray-300 flex items-center gap-4 pr-2 sm:pr-4 rounded-full shadow-md border border-orange-300 transition-all duration-300 ease-in-out ${
+        className={`w-fit min-w-80 max-w-4xl mx-auto bg-gray-300 flex items-center gap-4 pr-2 sm:pr-4 rounded-full border border-blue-300 transition-all hover:shadow-lg hover:border-blue-300 duration-300 ease-in-out ${
           scrolled
             ? "my-1 sm:my-2 py-1 px-1"
             : "my-2 sm:my-3 py-1 px-1"
@@ -55,23 +55,23 @@ function Navbar() {
             scrolled ? "gap-3" : "gap-6"
           }`}
         >
-          <Link to="/" className="cursor-pointer hover:text-orange-600 transition-colors"
+          <Link to="/" className="cursor-pointer hover:text-blue-600 transition-colors"
             style={{ color: "black" }}>
             HOME
           </Link>
-          <a href="/aboutus" className="cursor-pointer hover:text-orange-600 transition-colors"
+          <a href="/aboutus" className="cursor-pointer hover:text-blue-600 transition-colors"
             style={{ color: "black" }}>
             ABOUT
           </a>
-          <Link to="/event" className="cursor-pointer hover:text-orange-600 transition-colors"
+          <Link to="/event" className="cursor-pointer hover:text-blue-600 transition-colors"
             style={{ color: "black" }}>
             EVENT
           </Link>
-          <Link to="/speakers" className="cursor-pointer hover:text-orange-600 transition-colors"
+          <Link to="/speakers" className="cursor-pointer hover:text-blue-600 transition-colors"
             style={{ color: "black" }}>
             SPEAKERS
           </Link>
-          <Link to="/team" className="cursor-pointer hover:text-orange-600 transition-colors"
+          <Link to="/team" className="cursor-pointer hover:text-blue-600 transition-colors"
             style={{ color: "black" }}>
             TEAM
           </Link>
@@ -80,7 +80,7 @@ function Navbar() {
         {/* CTA Button */}
         {/* <Link to="/APIconf2025" className="hidden md:block">
           <div
-            className={`bg-orange-500 text-white px-4 rounded-full text-sm font-semibold cursor-pointer border-2 border-white hover:bg-orange-600 transition-all duration-300 transform hover:scale-105 ${
+            className={`bg-blue-500 text-white px-4 rounded-full text-sm font-semibold cursor-pointer border-2 border-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-105 ${
               scrolled ? "py-1 text-xs" : "py-2 text-sm"
             }`}
           >
@@ -107,29 +107,29 @@ function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {menuOpen && (
-        <div className="w-full max-w-3xl bg-gray-300 rounded-xl shadow-md border mx-2 border-orange-300 px-6 py-4 flex flex-col items-center text-sm font-extrabold text-black md:hidden animate-fadeIn">
-          <Link to="/" className="block mb-3 hover:text-orange-600"
+        <div className="w-full max-w-3xl bg-gray-300 rounded-xl shadow-md border mx-2 border-blue-300 px-6 py-4 flex flex-col items-center text-sm font-extrabold text-black md:hidden animate-fadeIn">
+          <Link to="/" className="block mb-3 hover:text-blue-600"
             style={{ color: "black" }}>
             HOME
           </Link>
-          <a href="/aboutus" className="block mb-3 hover:text-orange-600"
+          <a href="/aboutus" className="block mb-3 hover:text-blue-600"
             style={{ color: "black" }}>
             ABOUT
           </a>
-          <Link to="/event" className="block mb-3 hover:text-orange-600"
+          <Link to="/event" className="block mb-3 hover:text-blue-600"
             style={{ color: "black" }}>
             EVENT
           </Link>
-          <Link to="/speakers" className="block mb-3 hover:text-orange-600"
+          <Link to="/speakers" className="block mb-3 hover:text-blue-600"
             style={{ color: "black" }}>
             SPEAKERS
           </Link>
-          <Link to="/team" className="block mb-4 hover:text-orange-600"
+          <Link to="/team" className="block mb-4 hover:text-blue-600"
             style={{ color: "black" }}>
             TEAM
           </Link>
           <Link to="/APIconf2025">
-            <div className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold cursor-pointer border-2 border-white hover:bg-orange-600 transition-all duration-300 transform hover:scale-105">
+            <div className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold cursor-pointer border-2 border-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
               THE API CONF 2025
             </div>
           </Link>
