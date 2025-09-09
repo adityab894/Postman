@@ -128,11 +128,11 @@ function Navbar() {
             style={{ color: "black" }}>
             TEAM
           </Link>
-          <Link to="/APIconf2025">
+          {/* <Link to="/APIconf2025">
             <div className="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold cursor-pointer border-2 border-white hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
               THE API CONF 2025
             </div>
-          </Link>
+          </Link> */}
         </div>
       )}
     </div>
