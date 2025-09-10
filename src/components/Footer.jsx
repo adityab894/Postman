@@ -26,7 +26,7 @@ const Footer = () => (
         }}
       />
     </div> */}
-    <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col items-center justify-between">
+    <div className="bg-gray-100 relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col items-center justify-between">
       <div className="w-full flex flex-col md:flex-row flex-wrap items-center md:items-start justify-between text-center md:text-left pt-16 pb-6 gap-2">
         <div className="max-w-xs mb-8 md:mb-0">
           <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
