@@ -296,9 +296,9 @@ const TeamMemberCard = memo(({ member, onClick }) => {
               const parent = target.parentElement;
               if (parent) {
                 parent.innerHTML = `
-                  <div class="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center rounded-full">
+                  <div class="w-full h-full flex items-center justify-center rounded-full" style="background: linear-gradient(to bottom right, #e6f4f7, #f3e8ff)">
                     <div class="text-center">
-                      <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mx-auto mb-2 flex items-center justify-center">
+                      <div class="w-16 h-16 rounded-full mx-auto mb-2 flex items-center justify-center" style="background: linear-gradient(to bottom right, #3097B8, #9333ea)">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
                           <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
                         </svg>
@@ -316,7 +316,7 @@ const TeamMemberCard = memo(({ member, onClick }) => {
           <h3 className="text-lg font-bold text-gray-800 mb-1">
             {member.name}
           </h3>
-          <p className="text-sm font-semibold text-blue-600 mb-1">
+          <p className="text-sm font-semibold mb-1" style={{ color: '#3097B8' }}>
             {member.role}
           </p>
         </div>
@@ -362,7 +362,7 @@ const TeamModal = memo(({ member, isOpen, onClose }) => {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
                 {member.name}
               </h2>
-              <p className="text-lg md:text-xl font-semibold text-blue-600 mb-1">
+              <p className="text-lg md:text-xl font-semibold mb-1" style={{ color: '#3097B8' }}>
                 {member.role}
               </p>
               <div className="mb-6">
@@ -378,7 +378,8 @@ const TeamModal = memo(({ member, isOpen, onClose }) => {
                   href={member.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center w-10 h-10 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-colors"
+                  className="inline-flex items-center justify-center w-10 h-10 text-white rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg"
+                  style={{ background: 'linear-gradient(135deg, #3097B8 0%, #2a7a9a 50%, #1e5f7a 100%)' }}
                 >
                   <FaLinkedin className="w-5 h-5 text-white text-2xl" />
                 </a>

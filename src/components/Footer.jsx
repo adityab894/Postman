@@ -1,6 +1,6 @@
 import React from "react";
-import logo from "../assets/CommunityLogos/api.png";
-import footerSvg from "../assets/footer.svg";
+import logo from "../assets/CommunityLogos/logo.png";
+import API from "../assets/CommunityLogos/2.png";
 import { Link } from "react-router-dom";
 import Wave from "react-wavify";
 import { Linkedin, Instagram, Github, Phone  } from "lucide-react";
@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => (
   <footer className="w-full relative overflow-hidden text-black">
-    <div className="absolute inset-0">
+    {/* <div className="absolute inset-0">
       <Wave
         fill="#DBEAFE"
         paused={false}
@@ -25,16 +25,16 @@ const Footer = () => (
           points: 3,
         }}
       />
-    </div>
+    </div> */}
     <div className="relative z-10 w-full max-w-6xl mx-auto px-4 flex flex-col items-center justify-between">
       <div className="w-full flex flex-col md:flex-row flex-wrap items-center md:items-start justify-between text-center md:text-left pt-16 pb-6 gap-2">
         <div className="max-w-xs mb-8 md:mb-0">
           <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
             <img src={logo} alt="Postman Logo" className="w-10 h-10" />
-            <h2 className="text-xl font-bold">The API Community Pune</h2>
+            <h2 className="text-xl font-bold">The API Community India</h2>
           </div>
           <p className="text-sm font-semibold">
-            A vibrant community of API enthusiasts in Pune, dedicated to
+            A vibrant community of API enthusiasts in India, dedicated to
             knowledge sharing, collaboration, and advancing the API ecosystem.
           </p>
         </div>
@@ -143,7 +143,7 @@ const Footer = () => (
         </div>
 
         <div className="hidden md:block relative">
-          <img src={footerSvg} alt="Footer decoration" className="w-50 h-50" />
+          <img src={API} alt="Footer decoration" className="w-50 h-50" />
         </div>
       </div>
 

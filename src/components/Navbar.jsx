@@ -25,13 +25,14 @@ function Navbar() {
   return (
     <div className="w-full fixed top-0 z-30 flex flex-col items-center transition-all duration-300">
       <div
-        className={`w-fit min-w-80 max-w-4xl mx-auto bg-gray-300 flex items-center gap-4 pr-2 sm:pr-4 rounded-full border border-blue-300 transition-all hover:shadow-lg hover:border-blue-300 duration-300 ease-in-out ${
+        className={`w-fit min-w-80 max-w-4xl mx-auto bg-gray-300 flex items-center gap-4 pr-2 sm:pr-4 rounded-full border transition-all hover:shadow-lg duration-300 ease-in-out ${
           scrolled
             ? "my-1 sm:my-2 py-1 px-1"
             : "my-2 sm:my-3 py-1 px-1"
         }`}
         style={{
           transform: scrolled ? "scale(0.96)" : "scale(1)",
+          borderColor: '#3097B8'
         }}
       >
         {/* Logo */}
@@ -55,24 +56,49 @@ function Navbar() {
             scrolled ? "gap-3" : "gap-6"
           }`}
         >
-          <Link to="/" className="cursor-pointer hover:text-blue-600 transition-colors"
-            style={{ color: "black" }}>
+          <Link 
+            to="/" 
+            className="cursor-pointer transition-colors" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             HOME
           </Link>
-          <a href="/aboutus" className="cursor-pointer hover:text-blue-600 transition-colors"
-            style={{ color: "black" }}>
+          <a 
+            href="/aboutus" 
+            className="cursor-pointer transition-colors" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             ABOUT
           </a>
-          <Link to="/event" className="cursor-pointer hover:text-blue-600 transition-colors"
-            style={{ color: "black" }}>
+          <Link 
+            to="/event" 
+            className="cursor-pointer transition-colors" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             EVENT
           </Link>
-          <Link to="/speakers" className="cursor-pointer hover:text-blue-600 transition-colors"
-            style={{ color: "black" }}>
+          <Link 
+            to="/speakers" 
+            className="cursor-pointer transition-colors" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             SPEAKERS
           </Link>
-          <Link to="/team" className="cursor-pointer hover:text-blue-600 transition-colors"
-            style={{ color: "black" }}>
+          <Link 
+            to="/team" 
+            className="cursor-pointer transition-colors" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             TEAM
           </Link>
         </div>
@@ -107,25 +133,50 @@ function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {menuOpen && (
-        <div className="w-full max-w-3xl bg-gray-300 rounded-xl shadow-md border mx-2 border-blue-300 px-6 py-4 flex flex-col items-center text-sm font-extrabold text-black md:hidden animate-fadeIn">
-          <Link to="/" className="block mb-3 hover:text-blue-600"
-            style={{ color: "black" }}>
+        <div className="w-full max-w-3xl bg-gray-300 rounded-xl shadow-md border mx-2 px-6 py-4 flex flex-col items-center text-sm font-extrabold text-black md:hidden animate-fadeIn" style={{ borderColor: '#3097B8' }}>
+          <Link 
+            to="/" 
+            className="block mb-3" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             HOME
           </Link>
-          <a href="/aboutus" className="block mb-3 hover:text-blue-600"
-            style={{ color: "black" }}>
+          <a 
+            href="/aboutus" 
+            className="block mb-3" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             ABOUT
           </a>
-          <Link to="/event" className="block mb-3 hover:text-blue-600"
-            style={{ color: "black" }}>
+          <Link 
+            to="/event" 
+            className="block mb-3" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             EVENT
           </Link>
-          <Link to="/speakers" className="block mb-3 hover:text-blue-600"
-            style={{ color: "black" }}>
+          <Link 
+            to="/speakers" 
+            className="block mb-3" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             SPEAKERS
           </Link>
-          <Link to="/team" className="block mb-4 hover:text-blue-600"
-            style={{ color: "black" }}>
+          <Link 
+            to="/team" 
+            className="block mb-4" 
+            onMouseEnter={(e) => e.target.style.color = '#3097B8'} 
+            onMouseLeave={(e) => e.target.style.color = 'black'}
+            style={{ color: "black" }}
+          >
             TEAM
           </Link>
           {/* <Link to="/APIconf2025">

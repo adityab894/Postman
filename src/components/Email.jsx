@@ -117,7 +117,8 @@ function Email() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="bg-gradient-to-r from-orange-700 to-orange-400 text-white justify-center rounded-lg px-4 py-2 mt-4 mx-auto block disabled:opacity-50"
+            className="text-white justify-center rounded-lg px-4 py-2 mt-4 mx-auto block disabled:opacity-50 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+            style={{ background: 'linear-gradient(135deg, #3097B8 0%, #2a7a9a 50%, #1e5f7a 100%)' }}
           >
             {isSubmitting ? "Submitting..." : "Join Our Team"}
           </button>

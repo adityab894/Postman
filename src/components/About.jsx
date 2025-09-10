@@ -19,11 +19,11 @@ function About() {
           id="about"
           className="text-2xl sm:text-3xl font-bold text-black mb-6 scroll-mt-24"
         >
-          Building the API Community in Pune
+          Building the API Community in India
         </h2>
 
         <p className="text-sm sm:text-base text-gray-700 mb-4 text-justify">
-          We at The API Community Pune are passionate about API education,
+          We at The API Community India are passionate about API education,
           collaboration, and innovation. Our goal is to bring together
           developers, students, and professionals to learn, build, and grow
           in the API ecosystem.
@@ -43,7 +43,7 @@ function About() {
               className="flex flex-col items-start p-4 bg-gray-50 rounded-lg"
             >
               <div className="flex items-center mb-2 gap-2">
-                <div className="bg-orange-400 rounded-full h-4 w-4"></div>
+                <div className="rounded-full h-4 w-4" style={{ backgroundColor: '#3097B8' }}></div>
                 <span className="font-bold text-black">
                   Knowledge Sharing
                 </span>
@@ -56,7 +56,7 @@ function About() {
           ))}
         </div>
 
-        <button className="bg-gradient-to-r from-orange-700 to-orange-400 text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition-colors flex items-center gap-2 mx-auto">
+        <button className="text-white font-bold py-3 px-6 sm:px-8 rounded-lg transition-all duration-300 flex items-center gap-2 mx-auto hover:scale-105 hover:shadow-lg" style={{ background: 'linear-gradient(135deg, #3097B8 0%, #2a7a9a 50%, #1e5f7a 100%)' }}>
           Learn More About Us →
         </button>
       </div>

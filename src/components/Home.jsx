@@ -207,12 +207,12 @@ function Home() {
       <div className="flex flex-col lg:flex-row items-center justify-center gap-10 px-4 lg:px-10 mt-10 mb-10 max-w-7xl mx-auto">
         <div className="w-full lg:w-3/5">
           <div className="flex flex-col justify-center items-start text-black mt-10 lg:mt-0">
-            <div className="w-fit rounded-full bg-gradient-to-r from-orange-700 to-orange-400 text-white text-center text-sm font-bold py-2 px-4 mb-4">
+            <div className="w-fit rounded-full text-white text-center text-sm font-bold py-2 px-4 mb-4 transition-all duration-300 hover:scale-105 hover:shadow-lg" style={{ background: 'linear-gradient(135deg, #3097B8 0%, #2a7a9a 50%, #1e5f7a 100%)' }}>
               Join Our Community
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3">
               Become Part of the
-              <span className="text-orange-500"> API Revolution</span>
+              <span style={{ color: '#3097B8' }}> API Revolution</span>
             </h1>
             <p className="text-base sm:text-lg text-gray-700 w-full max-w-xl mb-6">
               Join our growing community of developers, testers, and API
@@ -223,7 +223,7 @@ function Home() {
             <div className="w-full max-w-xl flex flex-col items-start text-black">
               {available.map((item, index) => (
                 <div key={index} className="flex items-start gap-3 mb-4">
-                  <div className="text-orange-500 mt-1">{item.icon}</div>
+                  <div className="mt-1" style={{ color: '#3097B8' }}>{item.icon}</div>
                   <div>
                     <h3 className="text-black text-lg font-semibold">
                       {item.label}
