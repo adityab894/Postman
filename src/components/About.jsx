@@ -23,7 +23,7 @@ function About() {
         </h2>
 
         <p className="text-sm sm:text-base text-gray-700 mb-4 text-justify">
-          We at The API Community India are passionate about API education,
+          We at The API Community are passionate about API education,
           collaboration, and innovation. Our goal is to bring together
           developers, students, and professionals to learn, build, and grow
           in the API ecosystem.

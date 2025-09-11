@@ -31,7 +31,7 @@ const Footer = () => (
         <div className="max-w-xs mb-8 md:mb-0">
           <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
             <img src={logo} alt="Postman Logo" className="w-10 h-10" />
-            <h2 className="text-xl font-bold">The API Community India</h2>
+            <h2 className="text-xl font-bold">The API Community</h2>
           </div>
           <p className="text-sm font-semibold">
             A vibrant community of API enthusiasts in India, dedicated to
