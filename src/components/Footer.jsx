@@ -90,7 +90,7 @@ const Footer = () => (
         <div className="flex flex-col flex-center items-center sm:items-start">
           <h3 className="text-2xl font-bold mb-3">Connect with us</h3>
           <div className="w-25 flex flex-col gap-4">
-            <div
+            {/* <div
               className="flex flex-row gap-2 cursor-pointer"
               onClick={() =>
                 window.open("https://github.com/postmanapipune", "_blank")
@@ -98,12 +98,12 @@ const Footer = () => (
             >
               <Github />
               <p>Github</p>
-            </div>
+            </div> */}
             <div
               className="flex flex-row gap-2 cursor-pointer"
               onClick={() =>
                 window.open(
-                  "https://www.instagram.com/postman_pune/?hl=en/",
+                  "https://www.instagram.com/theapicommunity/?hl=en%2F",
                   "_blank"
                 )
               }
@@ -115,7 +115,7 @@ const Footer = () => (
               className="flex flex-row gap-2 cursor-pointer"
               onClick={() =>
                 window.open(
-                  "https://www.linkedin.com/company/postmanapipune/posts/?feedView=all",
+                  "https://www.linkedin.com/company/theapicommunity/",
                   "_blank"
                 )
               }
@@ -127,7 +127,7 @@ const Footer = () => (
               className="flex flex-row gap-2 cursor-pointer"
               onClick={() =>
                 window.open(
-                  "https://x.com/PostmanPune",
+                  "https://x.com/community_api",
                   "_blank"
                 )
               }
