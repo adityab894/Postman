@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/CommunityLogos/logo.png";
-import API from "../assets/CommunityLogos/2.png";
+import panda from "../assets/panda.svg";
 import { Link } from "react-router-dom";
 import Wave from "react-wavify";
 import { Linkedin, Instagram, Github, Phone  } from "lucide-react";
@@ -143,7 +143,11 @@ const Footer = () => (
         </div>
 
         <div className="hidden md:block relative">
-          <img src={API} alt="Footer decoration" className="w-50 h-50" />
+        <img 
+            src={panda} 
+            alt="Panda mascot" 
+            className="w-38 h-38 mt-8 mr-4"
+          />
         </div>
       </div>
 
